@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз погоды по маршруту</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Прогноз погоды по маршруту</h1>
+        <form action="/result" method="post">
+            <label for="start_point">Начальная точка:</label>
+            <input type="text" id="start_point" name="start_point" required placeholder="Введите город">
+            
+            <label for="end_point">Конечная точка:</label>
+            <input type="text" id="end_point" name="end_point" required placeholder="Введите город">
+            
+            <input type="submit" value="Получить прогноз">
+        </form>
+    </div>
+</body>
+</html>
