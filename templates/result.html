@@ -1,0 +1,29 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты прогноза</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Результаты прогноза</h1>
+        <h2>Начальная точка: {{ start_point }}</h2>
+        {% if start_bad %}
+            <p class="bad-weather">Неблагоприятные погодные условия.</p>
+        {% else %}
+            <p class="good-weather">Погода благоприятна для путешествия.</p>
+        {% endif %}
+
+        <h2>Конечная точка: {{ end_point }}</h2>
+        {% if end_bad %}
+            <p class="bad-weather">Неблагоприятные погодные условия.</p>
+        {% else %}
+            <p class="good-weather">Погода благоприятна для путешествия.</p>
+        {% endif %}
+
+        <a href="/" class="back-link">Вернуться на главную</a>
+    </div>
+</body>
+</html>
