@@ -1,0 +1,199 @@
+/* static/style.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap');
+
+/* CSS Variables for Theme Colors */
+:root {
+    --primary-gradient: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    --secondary-gradient: linear-gradient(135deg, #FF758C 0%, #FF7EB3 100%);
+    --background-color: #1a1a2e;
+    --container-bg: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.2);
+    --text-color: #ffffff;
+    --accent-color: #f05454;
+    --good-weather-color: #4caf50;
+    --bad-weather-color: #f44336;
+    --link-bg: #ff7eb3;
+    --link-hover-bg: #ff758c;
+    --transition-speed: 0.3s;
+}
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with Flexbox for centering */
+body {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+    min-height: 100vh;      /* Full viewport height */
+    background: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Abstract Background Shapes */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 20s infinite alternate;
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-gradient);
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    background: var(--secondary-gradient);
+    bottom: -150px;
+    right: -150px;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50px) rotate(360deg);
+    }
+}
+
+/* Container styling */
+.container {
+    background: var(--container-bg);
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Heading styles */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Paragraph styles */
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.bad-weather {
+    color: var(--bad-weather-color);
+    font-weight: bold;
+}
+
+.good-weather {
+    color: var(--good-weather-color);
+    font-weight: bold;
+}
+
+/* Link/Button styles */
+.back-link,
+input[type="submit"] {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: var(--link-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background var(--transition-speed) ease;
+}
+
+.back-link:hover,
+input[type="submit"]:hover {
+    background: var(--link-hover-bg);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-size: 1em;
+    backdrop-filter: blur(4px);
+    transition: background var(--transition-speed) ease;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="text"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 40px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    input[type="text"],
+    .back-link,
+    input[type="submit"] {
+        width: 100%;
+    }
+}
